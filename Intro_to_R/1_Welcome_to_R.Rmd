@@ -34,6 +34,7 @@ Today we'll start by familiarizing ourselves with the RStudio Graphical User Int
  Type the following into the command window to the right of the **>** 
  
  Hit enter after each command.
+ 
 
 ```{r version, results='hide'}
 
@@ -51,17 +52,19 @@ Note: In R **( )** indicate that we are working with a function. The parentheses
 
 ### Packages 
 
+
 If you have played around with R a little you may be wondering what *packages* are and why there are so many of them. 
 
 
 <center>![](theresapackageforthat.jpg)</center>
+</br>
 
 
 Simply put packages are user-developed collections of tools and functions that work in the R environment. These packages are what make R so powerful, but at times so frustrating. As tools developed by R users for R users many of the packages focus on simplifying the use of R for specific applied science and data analysis tasks. (**REALLY HELPFUL!**) This means that your average R user, like you and me, can focus on the science instead of worrying about the nitty gritty details of the mathematics and programming behind the methods. 
 
 However, this also means that each package has its own unique syntax, function names and argument calls, user support documentation, update timing (and sometimes no updates), and occasionally even data classes. (**REALLY FRUSTRATING!**) And because there are so many packages it is unrealistic to expect to become an expert in them all. Most R users frequently reference the R help and other online forums when they can't remember the name of a specific function, or how to structure an expression, etc.... 
 
-However, once you learn how to: find packages that can help you solve your problems, read the documentation, navigate the forums and search for help you'll find that there are very few data problems that can't be tackled in R.
+Don't worry. Once you learn how to: find packages that can help you solve your problems, read the documentation, navigate the forums and search for help you'll find that there are very few data problems that can't be tackled in R.
 
 ***
 
