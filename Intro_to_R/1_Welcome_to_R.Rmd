@@ -31,7 +31,7 @@ Today we'll start by familiarizing ourselves with the RStudio Graphical User Int
 
 - Now lets check out the version and citation information for R.
 
- Type the following into the command window to the right of the **>** 
+ Type the following into the command console window (lower left) to the right of the **>** 
  
  Hit enter after each command.
  
@@ -169,18 +169,62 @@ There are also numerous google groups dedicated to specific R packages and googl
 ### R Scripts, R Projects, and R Markdown 
 
 
-Thus far we have used only the R command console to do calculations and assign data. However, if we want to be able to go back and reproduce a set of calculations or want to share our code with others we will want a way to save and store and modify the R commands and operations we run. The simplest way to do this is using an R script. An R script is simply a document in which we write out all the R commands we want to run and descriptive comments about these commands. In R Studio we can then select and run commands  from the script.
+Thus far we have used only the R command console to do calculations and assign data. However, if we want to be able to go back and reproduce a set of calculations or want to share our code with others we will want a way to save and store and modify the R commands and operations we run. The simplest way to do this is using an *R script*. An R script is simply a text document (with a .R file ending) in which we write out all the R commands we want to run and descriptive comments about these commands. In R Studio we can then select and run commands  from the script.
 
 - Create a new R script by going to File --> New File --> R Script
-- In this new R script type up all the R commands we have run thus far and then save the script to a folder named "Lab 1".
+- In this new R script which should pull up in the Source window (upper left) in R Studio type up all the R commands we have run thus far and then save the script to a folder named "Lab 1".
 - Try running the first line of code by placing your cursor next to it then typing **cntrl + enter** or using the **Run** menu in the upper right corner of the script window (Run Selected Line).
 - OK, now try running all the lines of code by highlighting all lines of code then typing **cntrl + enter** or using the **Run** menu.
 
-
-
-
+Easy peasy, right?
 
 ***
+
+OK, so what is an *R Project*?
+
+An R Project is essentially a special R folder that holds your R materials related to a specific topic. Technically, it a *working directory*, a file path on your computer that maps where information should be coming from and going to that is desgnated with a .RProj file. In R you work out of a single active working directory at a time. So if we want to pull data files from other folders on our computer we have to specify the full path (e.g."C:/Users/jane/Documents/GEOG 728/mydata.csv") instead of just writing out the file name "mydata.csv". I'll show you how to check and set your working directory next week, but for simply know that using a project simplifies things a bit by streamlining and automating the working directory references in R. 
+
+Your R Projects can hold R Scripts, R Markdown files, data, text files, images, etc... and you can easily organize these items in an R Project by creating sub folders.
+
+- Let's try creating a new R Project by going to File --> New File --> R Project --> Existing Directory --> Navigate to your "Lab 1" folder and assign the R Project there
+- In this new R Project you should see a list of Files in the window in the lower right. Click on your script to pull it up in the main Source window.
+
+***
+
+Now the final, and perhaps most terrifying, R file type. R Markdown!
+
+R Markdown is a fantastic tool that allows us to combine text and chunks of R code and their output into a single document.  These documents are stored as .Rmd files and use a plain text formatting system called **Markdown** to create pretty documents that can be converted to HTML documents or web pages, PDFs, or even MS Word documents. The big advantage here is that we can produce not just cool looking documents, but we can also integrate instructions or background information with our actual analysis and results. Making it easier for others to understand what we did, how we did it, and what we found.
+
+Why did I say it can be terrifying? Is it because I'm easily scared? 
+
+Well, yes, but also becuase R Markdown files can be somewhat intimidating when you first start working with them as you have to handle both Markdown text formatting and R code as well as the various organizational and formatting rules for integrating the two. But don't let that worry you too much we'll start simple and there are plenty of resources out there for those of you who want to get real fancy.
+
+As proof that it's not so terrifying after all, this tutorial was made using R Markdown. Later on I'll show you where you can download the .Rmd version to use as a template for your own work if you so desire.
+
+- Let's create a new R Markdown file in our R Project by going to File --> New File --> R Markdown --> Choose a Document --> Set the title as "My First Markdown" --> Select html as the default format
+
+At the top of your new .Rmd you should see something like the following.
+
+```
+---
+title: "My First Markdown"
+author: "Kate Nelson"
+date: "1/9/2020"
+output: html_document
+---
+```
+
+This is the document header information. All the information here, except for the output setting will be printed at the top of the final document you create from this file. To turn an RMarkdown document into an HTML, PDF, or Microsoft Word document, you just click on the "Knit" button in RStudio. If you click on the word "Knit" on the 
+button, RStudio will turn the RMarkdown document into the default format specified in the header information under **output:**. To knit the document into a different output format, click on the arrow just to the right of the word "Knit," and select the output format you want.
+
+Just below the header information you will see an R code chunk called **R setup**. Code chunks can be distinguished by the **```** at the beginning and end of the chunk. Code chunks also have a slightly different background color as text. This code chunk holds information about how we want to run and process R code in the .Rmd. So we could load package libraries here, etc... 
+
+- For now leave this alone and go down to the text section below.
+
+
+
+
+
 
 ### Version Control
 
@@ -334,7 +378,7 @@ dim(d)
 
 ```
 
-By the way, the *iris* dataset is a pretty famous dataset in R land. It is actually one of the datasets provided with base R via the package "datasets()" to allow for simple illustrations of R functions and is widely used for demonstrations and worked examples for many of the more widely used R packages such as dplyr and ggplot2. Want to know how to access these mysterious, freely provided datasets? 
+By the way, the *iris* dataset is a [pretty famous dataset in R land](https://twitter.com/kareem_carr/status/1156279166276386816). It' i'ss actually one of the datasets provided with base R via the package "datasets()" to allow for simple illustrations of R functions and is widely used for demonstrations and worked examples for many of the more widely used R packages such as dplyr and ggplot2. Want to know how to access these mysterious, freely provided datasets? 
 
 -Just type ***data()***
 
