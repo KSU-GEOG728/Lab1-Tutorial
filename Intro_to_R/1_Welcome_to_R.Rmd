@@ -55,7 +55,7 @@ Note: In R **( )** indicate that we are working with a function. The parentheses
 
 If you have played around with R a little you may be wondering what *packages* are and why there are so many of them. 
 
-
+</br>
 <center>![](theresapackageforthat.jpg)</center>
 </br>
 
@@ -99,18 +99,22 @@ update.packages()
 
 ```
 
+**NOTE:** If you want to run another install packages command for a different package (e.g. ggplot2) you can simply hit the **up arrow** to pull up a previous command on the current command line. You can then edit the name of the package and hit enter to run the command as normal. Becuase of this rather convenient feature you should NOT attempt to use the arrow keys to navigate through the command console output (say you had R return a long list and you want to go back and take a look at it). Instead use the scroll bar.
+
+</br>
 
 
 ### Getting Help 
 
-Now lets check out a few ways to access R help. While it is normal to consuct web searches to assist with writing code to solve some complex problem in many cases (e.g. wrong syntax used, can't remember specific function arguments that need to be referenced) a simple review of the R Documentation can help you pinpoint and correct the issue.
+Now lets check out a few ways to access R help. While it is normal to conduct web searches to assist with writing code to solve complex problems in many cases (e.g. wrong syntax used, can't remember specific function arguments that need to be referenced) a simple review of the official R Documentation can help you pinpoint and correct the issue.
+
+To access the R Documentation on how to use a function we can use the following:
 
 - If you know the name of the function you need help with type a ***?*** followed by the function name 
 - If you don't remember the exact function name but know the topic use ***??*** followed by the topic or ***help.search("topic")***
 
 
-
-Try these...
+Try the following one at a time.
 
 ```{r help, eval=FALSE}
 
@@ -126,12 +130,51 @@ Try these...
 
 ```
 
+Notice the small window in the lower right-hand corner of your screen? Here we can see the Help documentation related to these functions/topics.
+
+Remember the function name but can't remember what the arguments to that function are or how they are structured/ordered? In the command console simply start typing in the function name and hover your mouse over the little pop-up window for the function you want, or put in the parentheses after the function name and check out the little yellow pop-up window before you continue typing any arguments. 
+
+I personally find the auto-suggestion, auto-fill, and function argument pop-up window to be the most useful parts of the R Studio interface and use them every time I work in R.
+
+
 ***
+
+Of course there are numerous online sources of R help as well. Let's start with the more *official* sources of online help.
+
+- CRAN stands for *The Comprehensive R Archive Network* and contains complete package doucmentation including: package reference manuals, package websites, and package vignettes. 
+  - Package reference manuals are essentially a compilation of the official R Documentation for all functions in a package.
+  - Package websites will often provide a nice html formatted version of the R documenation, perhaps with more worked examples, and/or provide access to the code that makes up the package itself.
+  - Package vignettes are wonderful walkthrough tutorials that provide a more thorough examination of how a package and its functions can be used. Of course, these are produced by the package creators so they come in different flavors and some are more useful than others.
+  
+**Note**: I'm cheating a bit here by saying this is online help. While you will typically access this info online, for packages you have installed most of this information should actually exist in your R library on your computer.
+
+- Let's go to the [CRAN website](https://cran.r-project.org/).
+- On the left, click on **Packages** and scroll down to **dplyr**
+
+You should now see a page that provides: the name of the package along with a brief description, information on the latest version and when it was published, the authors of the package, the website, a link to the reference manual, and links to a set of vignettes amoung other things.
+
+- Take a quick look at the reference manual. In some cases this is the best place to go to try to understand what a function is doing.
+- Now take a look at the **Introduction to dplyr** vignette. See how these might be really useful?
+
+If you are looking for a package that does a specific thing (e.g. multilevel modeling) and easy way to find one is to search CRAN (using the search menu accessible from the CRAN homepage) by that topic.
+
+
+- For more tutorials and worked examples from the R community check [R-bloggers](https://www.r-bloggers.com/).
+- For help with various technical coding challenges I reccomend [StackExchange](https://stackexchange.com/).
+
+There are also numerous google groups dedicated to specific R packages and google searches are generally fruitful provided you specify that you are searching for an answer to an R problem, provide plenty of detail, and try out different search terms.
+
+</br>
 
 ### R Scripts, R Projects, and R Markdown 
 
 
+Thus far we have used only the R command console to do calculations and assign data. However, if we want to be able to go back and reproduce a set of calculations or want to share our code with others we will want a way to save and store and modify the R commands and operations we run. The simplest way to do this is using an R script. An R script is simply a document in which we write out all the R commands we want to run and descriptive comments about these commands. In R Studio we can then select and run commands  from the script.
 
+- Create a new R script by going to File --> New File --> R Script
+- In this new R script type up all the R commands we have run thus far and then save the script to a folder named "Lab 1".
+- Try running the first line of code by placing your cursor next to it then typing **cntrl + enter** or using the **Run** menu in the upper right corner of the script window (Run Selected Line).
+- OK, now try running all the lines of code by highlighting all lines of code then typing **cntrl + enter** or using the **Run** menu.
 
 
 
