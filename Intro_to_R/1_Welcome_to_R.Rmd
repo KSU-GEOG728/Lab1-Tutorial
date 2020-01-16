@@ -1,0 +1,332 @@
+---
+title: "Welcome to R"
+author: "Kate Nelson"
+date: "1/9/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+Today we'll start by familiarizing ourselves with the RStudio Graphical User Interface (GUI) and basic R commands and operators. We'll also examine Git version control and R Markdown for making "pretty" documents.
+
+## Objectives {.tabset}
+- Learn how to navigate and customize the RStudio GUI
+- Learn how to install and use packages in R
+- Learn how to find help within R
+- Familiarize ourselves with the R Markdown structure and .git version control
+- Learn how to import data, create data, explore its structure, and perform basic operations
+
+***
+
+### Getting Started with RStudio 
+
+- Let's start off by opening up RStudio and setting up the Graphical User Interface (GUI). (A written guide to much of this information can be found in [The R Book: Chapter 1](https://learning.oreilly.com/library/view/the-r-book/9780470510247/05_chapter-01.html#ch1). Note that some of the information in this source is outdated.)
+  - Go ahead and check out this source. You can sign in for free using your university email address.
+
+- If you would like to change the display settings go to Tools --> Global Options --> Appearance and choose a new "Editor Theme".  (My personal preference is "cobalt".)
+
+
+- Now lets check out the version and citation information for R.
+
+ Type the following into the command window to the right of the **>** 
+ 
+ Hit enter after each command.
+
+```{r version, results='hide'}
+
+R.Version()
+
+citation()
+
+```
+
+
+***
+
+Note: In R **( )** indicate that we are working with a function. The parentheses hold the arguments that must be answered in order for a function to run. For example: if we wanted to calculate the mean value of a vector of values we would need to provide, at the very least, that vector of values to the function that calculates the mean. In some cases, such as those run above, no arguments need to be supplied. In these cases, R will refer to some pre-established default. In these tutorials I will ***bold and italicize*** the names of functions within the text.
+
+
+### Packages 
+
+If you have played around with R a little you may be wondering what *packages* are and why there are so many of them. 
+
+
+<center>![](theresapackageforthat.jpg)</center>
+
+
+Simply put packages are user-developed collections of tools and functions that work in the R environment. These packages are what make R so powerful, but at times so frustrating. As tools developed by R users for R users many of the packages focus on simplifying the use of R for specific applied science and data analysis tasks. (**REALLY HELPFUL!**) This means that your average R user, like you and me, can focus on the science instead of worrying about the nitty gritty details of the mathematics and programming behind the methods. 
+
+However, this also means that each package has its own unique syntax, function names and argument calls, user support documentation, update timing (and sometimes no updates), and occasionally even data classes. (**REALLY FRUSTRATING!**) And because there are so many packages it is unrealistic to expect to become an expert in them all. Most R users frequently reference the R help and other online forums when they can't remember the name of a specific function, or how to structure an expression, etc.... 
+
+However, once you learn how to: find packages that can help you solve your problems, read the documentation, navigate the forums and search for help you'll find that there are very few data problems that can't be tackled in R.
+
+***
+
+- While R comes with plenty of base functions (you don't need to install a package to use them) and a few standard packages most packages will need to be manually installed onto your computer.
+
+To install a package simply type ***install.packages("name of package")*** in the command line. 
+
+- To actually make use of an installed package during an active R session you need to load the information (functions, help documents, etc...) contained in the package.
+
+To load the package type ***library(package name)*** in the command line.
+
+- Occasionally you may need to update your packages. (Some packages are interdependent and changes in one may neccessitate an update of the other in order to avoid errors.)
+
+Simply type ***update.packages()*** in the command line to update all packages.
+
+
+Try the following:
+
+```{r packages, eval=FALSE}
+
+install.packages("sf") #sf is a fantastic package for handling spatial data that we will use often later in the semester
+
+library(sf)
+
+update.packages()
+
+#P.S. Text following the "#" sign is designated as a comment and is not treated or run like code.
+#Note that in the cobalt user interface comments are also a different color and appear in italics.
+#Comments are this girls best friend as they allow me to understand what I did when I come back to a script after a few days or weeks or ...
+#They are also helpful for explaining your logic/process for others that you share your code with.
+#Main point: comment often, comment well
+
+```
+
+
+
+### Getting Help 
+
+Now lets check out a few ways to access R help. While it is normal to consuct web searches to assist with writing code to solve some complex problem in many cases (e.g. wrong syntax used, can't remember specific function arguments that need to be referenced) a simple review of the R Documentation can help you pinpoint and correct the issue.
+
+- If you know the name of the function you need help with type a ***?*** followed by the function name 
+- If you don't remember the exact function name but know the topic use ***??*** followed by the topic or ***help.search("topic")***
+
+
+
+Try these...
+
+```{r help, eval=FALSE}
+
+?read.csv
+
+?hist
+
+??csv
+
+??histogram
+
+
+
+```
+
+***
+
+### R Scripts, R Projects, and R Markdown 
+
+
+
+
+
+
+
+
+***
+
+### Version Control
+
+
+
+
+
+
+
+
+***
+
+### Getting Started with Data in R 
+
+Whew, that was a lot of information. Finally, we're ready to get cooking with some data. But wait! First we need to get some data into R. 
+
+- To keep things simple let's start by just making a few variables to work with. Type the following code in a new R Script, then select the lines of code you want to run and hit **cntrl+Enter**.
+
+
+```{r data}
+
+x <- 6
+y <- 8
+n <- 1:10
+let <- LETTERS[1:10]
+
+
+# I'm pulling heavily from http://www.cookbook-r.com/Basics/Information_about_variables/ for this
+
+```
+
+So what did we just do? We just created new numerical data objects called "x" and "y" with a value of 6 and 8, a new vector data object called "n" with integer values 1 through 10, a new vector called "let" that includes the first 10 letters of the alphabet, and a data frame that combines the two vectors "n" and "let".
+
+**Some Important Notes**
+- **<-** is an operator that assigns a value, vector, dataframe, etc... to the thing that is pointed to
+- **:** is an operator that identifies a sequence. It can be used to create a new sequence or to reference a sequence of values or columns, etc... within an existing dataset.
+- **LETTERS** is a set of constants built into base R, namely the 26 letters of the alphabet in upper-case. Check ?Constants for other constants available.
+
+Let's check to make sure these variables really are what we think they are by asking R to return their values.
+
+```{r data2}
+
+x 
+y 
+n
+let 
+z <- c(1, 1, 2, 3, 5, NA, 13)
+
+
+```
+
+So far so good. Now let's perform some basic operations on these variables.
+
+- We can do very simple stuff, like say adding x + y. (Incidentally we could just type 6+8 in our R console to get this answer. It's not always neccessary to assign all values to a data object.)
+- We can evaluate logical expressions, like is y > 2
+- We can also run some basic functions on these to do things like calculate the log of x.
+- We can also perform operations on a vector like multiplying all values in n by 2.
+- Or we could calculate the mean of n, or the maximum of let (remember this is a vector of text characters so we should not attempt to compute the mean), or the sum of z.
+
+
+```{r data3}
+
+x + y 
+
+y > 2
+
+6 + 8
+
+log(6)
+
+n*2
+
+max(let)
+
+sum(z)
+
+sum(z, na.rm=T)
+
+
+```
+
+Great! Notice that null values will throw off most calculations (and most real dataset have nulls) so we need to specify what to do with them in the function if we want a value returned. Often we choose to remove or ignore nulls using **na.rm=TRUE**, but this is not always the appropriate choice.
+
+- Did you notice if the log function calculates the natural logarithim or the base 10 log? 
+- What would you add to the code above if you wanted to retain one of these answers for later use?
+- What should the misisng value in z be?
+
+***
+### Even More Data in R
+
+Now on to bigger and better things... lets try one of the most basic and important tasks in R: **importing data**. Yay!
+
+R is wonderfully flexible with the types of data you can import and work with. Got a csv or text file? Base R can handle that. What about an excel file or shapefile? 
+
+<center>There's a package for that!</center>
+
+
+- Let's start by loading a csv using the ***read.csv*** function. Download the file *iris.csv* from Canvas into your R project folder then try loading it into R. Remember that you can use ***?read.csv*** to get help on how to use this function.
+
+
+```{r csv, results='hide', echo=FALSE}
+
+read.csv("iris.csv", stringsAsFactors = FALSE)
+
+
+```
+
+You should now see a table of information from the iris dataset printed out on your console. In this case R has read the data and shown us what it found, but becuase we have not assigned it to a data object it was not retained in the R working environment. Let's try again, this time assign the dataset to a data object using the ***<-*** operator.
+
+
+```{r csv2, results='hide'}
+
+d<-read.csv("iris.csv", stringsAsFactors = FALSE)
+
+
+```
+
+
+OK. Now let's see what we can find out about this dataset. Let's take a quick look at the data by simply asking R to return the dataset.
+
+```{r iris}
+
+d
+
+
+```
+
+Wow! That pretty much filled up your console with a bunch of numbers. Let's try using the ***head()*** function to get just a summary of the first few records for the dataset.
+
+```{r iris2, echo=FALSE}
+
+head(d)
+
+head(d, 10)
+
+
+```
+
+What if I want to know how many rows or columns (or both) are in a dataset?
+
+- Try the ***nrow()***, ***ncol()***, and ***dim()*** functions.
+
+```{r iris3, echo=FALSE}
+
+nrow(d)
+
+ncol(d)
+
+dim(d)
+
+
+```
+
+By the way, the *iris* dataset is a pretty famous dataset in R land. It is actually one of the datasets provided with base R via the package "datasets()" to allow for simple illustrations of R functions and is widely used for demonstrations and worked examples for many of the more widely used R packages such as dplyr and ggplot2. Want to know how to access these mysterious, freely provided datasets? 
+
+-Just type ***data()***
+
+You should now have a second tab open in your main R-Studio window called "R data sets".
+
+-Try assigning one of these datasets to a new data object called **ds** using the name of the dataset provided in the "R data sets" tab.
+-Then take a look at the data, get a summary of the first 5 records, and gather information on its structure.
+
+```{r mtcars, echo=FALSE}
+
+ds<-mtcars
+
+ds
+
+head(ds,5)
+
+dim(ds)
+
+nrow(ds)
+
+ncol(ds)
+
+
+```
+
+***
+### Lab Assignment
+
+For your lab assignment due next Wednesday please do the following.
+
+1. Create an R Project for your lab assignments with version control
+2. Create an Markdown file (html) titled Lab #1 with your name 
+3. In this R Markdown file create a new numerical variable and a new vector of numbers
+4. Report these produced data objects and then apply at least two functions to each
+5. Load a dataset from the R datasets package and report summary information on the dataset and its structure
+6. Your R Markdown file should include text describing what you are doing, code chunks where you run actual R code, and text describing the output
+7. Knit your R Markdown file
+8. Upload a copy of the knit html and the .rmd file to Canvas
+
+
+
