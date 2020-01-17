@@ -45,7 +45,7 @@ I am a strong believer in open code, open access, open resources, and not reinve
 
 - Now lets check out the version and citation information for R.
 
- Type the following into the command console window (lower left) to the right of the **>** 
+ Type the following into the command console window (lower left) to the right of the `>`
  
  Hit enter after each command.
  
@@ -61,7 +61,7 @@ citation()
 
 ***
 
-Note: In R **( )** indicate that we are working with a function. The parentheses hold the arguments that must be answered in order for a function to run. For example: if we wanted to calculate the mean value of a vector of values we would need to provide, at the very least, that vector of values to the function that calculates the mean. In some cases, such as those run above, no arguments need to be supplied. In these cases, R will refer to some pre-established default. In these tutorials I will ***bold and italicize*** the names of functions within the text.
+Note: In R `( )` immediately following a word indicate that we are working with a function. The parentheses hold the arguments that must be answered in order for a function to run. For example: if we wanted to calculate the mean value of a vector of values we would need to provide, at the very least, that vector of values to the function that calculates the mean. In some cases, such as those run above, no arguments need to be supplied. In these cases, R will refer to some pre-established default. In these tutorials I will use `this font` to denote functions, oeprators, and code within the text.
 
 
 ### Packages 
@@ -84,15 +84,15 @@ Don't worry. Once you learn how to: find packages that can help you solve your p
 
 - While R comes with plenty of base functions (you don't need to install a package to use them) and a few standard packages most packages will need to be manually installed onto your computer.
 
-To install a package simply type ***install.packages("name of package")*** in the command line. 
+To install a package simply type `install.packages("name of package")` in the command line. 
 
 - To actually make use of an installed package during an active R session you need to load the information (functions, help documents, etc...) contained in the package.
 
-To load the package type ***library(package name)*** in the command line.
+To load the package type `library(package name)` in the command line.
 
 - Occasionally you may need to update your packages. (Some packages are interdependent and changes in one may neccessitate an update of the other in order to avoid errors.)
 
-Simply type ***update.packages()*** in the command line to update all packages.
+Simply type `update.packages()` in the command line to update all packages.
 
 
 Try the following:
@@ -124,8 +124,8 @@ Now lets check out a few ways to access R help. While it is normal to conduct we
 
 To access the R Documentation on how to use a function we can use the following:
 
-- If you know the name of the function you need help with type a ***?*** followed by the function name 
-- If you don't remember the exact function name but know the topic use ***??*** followed by the topic or ***help.search("topic")***
+- If you know the name of the function you need help with type a `?` followed by the function name 
+- If you don't remember the exact function name but know the topic use `??` followed by the topic or `help.search("topic")`
 
 
 Try the following one at a time.
@@ -198,7 +198,7 @@ Easy peasy, right?
 
 **OK, so what is an *R Project*?**
 
-An R Project is essentially a special R folder that holds your R materials related to a specific topic. Technically, it a *working directory*, a file path on your computer that maps where information should be coming from and going to that is desgnated with a .RProj file. In R you work out of a single active working directory at a time. So if we want to pull data files from other folders on our computer we have to specify the full path (e.g.*"C:/Users/jane/Documents/GEOG 728/mydata.csv"*) instead of just writing out the file name "mydata.csv". I'll show you how to check and set your working directory next week, but for simply know that using a project simplifies things a bit by streamlining and automating the working directory references in R. 
+An R Project is essentially a special R folder that holds your R materials related to a specific topic. Technically, it a ***working directory****, a file path on your computer that maps where information should be coming from and going to that is desgnated with a .RProj file. In R you work out of a single active working directory at a time. So if we want to pull data files from other folders on our computer we have to specify the full path (e.g.*"C:/Users/jane/Documents/GEOG 728/mydata.csv"*) instead of just writing out the file name "mydata.csv". I'll show you how to check and set your working directory next week, but for simply know that using a project simplifies things a bit by streamlining and automating the working directory references in R. 
 
 Your R Projects can hold R Scripts, R Markdown files, data, text files, images, etc... and you can easily organize these items in an R Project by creating sub folders.
 
@@ -240,7 +240,7 @@ Just below the header information you will see an R code chunk called **R setup*
 - For now leave this alone and go down to the text section below.
 
 Any line of text that begins with one or more hash symbols ("#") and is preceded by 
-a blank line is treated as a section header. Top-level section headers have a single
+a blank line is treated as a section header. (In code chunks the "#" character still denotes a comment.) Top-level section headers have a single
 hash, and subsections, subsubsections, etc. use two, three, etc. hashes.
 
 
@@ -404,7 +404,7 @@ Full Disclosure *Much of this section comes from Jonathan Gilligan's introductio
   
   - Add another paragraph of random text to your R Markdown file and save it. Then click the **Commit** button.
   
-If you examine your markdown file in the commit window you should now see some text in the preview that is highlighted in <span style="color:green"> green</span>. The git version control is telling us that the only change made was to add this text. (Deletions are shown in <span style="color:red">red</span>.) If we think that this is a good and significant change to keep we should type a commit message like "added some random text" and click the "Commit" button. This will ask git to remember what the document looked like at this exact moment in our revisions. Say I changed a code chunk and somehow break everything. Instead of trying to remember exactly what it looked like before I messed it up I could just go back to the "History" section in the git commit window and restore that earlier version of my document. Of course, this means that I actually need to **commit** my changes frequently (not just save the document).
+If you examine your markdown file in the commit window you should now see some text in the preview that is highlighted in <span style="color:green">**green**</span>. The git version control is telling us that the only change made was to add this text. (Deletions are shown in <span style="color:red">**red**</span>.) If we think that this is a good and significant change to keep we should type a commit message like "added some random text" and click the "Commit" button. This will ask git to remember what the document looked like at this exact moment in our revisions. Say I changed a code chunk and somehow break everything. Instead of trying to remember exactly what it looked like before I messed it up I could just go back to the **History** section in the git commit window and restore that earlier version of my document. Of course, this means that I actually need to **commit** my changes frequently (not just save the document).
 
 - Go ahead and commit your changes to your .Rmd
 
@@ -435,11 +435,11 @@ So what did we just do? We just created new numerical data objects called "x" an
 
 **Some Important Notes**
 
--  **<-** is an operator that assigns a value, vector, dataframe, etc... to the thing that is pointed to
+-  `<-` is an operator that assigns a value, vector, dataframe, etc... to the thing that is pointed to
   
--  **:** is an operator that identifies a sequence. It can be used to create a new sequence or to reference a sequence of values or columns, etc... within an existing dataset.
+-  `:` is an operator that identifies a sequence. It can be used to create a new sequence or to reference a sequence of values or columns, etc... within an existing dataset.
   
--  **LETTERS** is a set of constants built into base R, namely the 26 letters of the alphabet in upper-case. Check ?Constants for other constants available.
+-  `LETTERS` is a set of constants built into base R, namely the 26 letters of the alphabet in upper-case. Check ?Constants for other constants available.
 
 Let's check to make sure these variables really are what we think they are by asking R to return their values.
 
@@ -484,7 +484,7 @@ sum(z, na.rm=T)
 
 ```
 
-Great! Notice that null values will throw off most calculations (and most real dataset have nulls) so we need to specify what to do with them in the function if we want a value returned. Often we choose to remove or ignore nulls using **na.rm=TRUE**, but this is not always the appropriate choice.
+Great! Notice that null values will throw off most calculations (and most real dataset have nulls) so we need to specify what to do with them in the function if we want a value returned. Often we choose to remove or ignore nulls using `na.rm=TRUE`, but this is not always the appropriate choice.
 
 - Did you notice if the log function calculates the natural logarithim or the base 10 log? 
 - What would you add to the code above if you wanted to retain one of these answers for later use?
@@ -497,11 +497,11 @@ Now on to bigger and better things... lets try one of the most basic and importa
 
 R is wonderfully flexible with the types of data you can import and work with. Got a csv or text file? Base R can handle that. What about an excel file or shapefile? 
 
-<center>There's a package for that!</center>
+<center>**There's a package for that!**</center>
 </br>
 
 
-- Let's start by loading a csv using the ***read.csv*** function. Download the file *iris.csv* from Canvas into your R project folder then try loading it into R. Remember that you can use ***?read.csv*** to get help on how to use this function.
+- Let's start by loading a csv using the `read.csv` function. Download the file ***iris.csv*** from Canvas into your R project folder then try loading it into R. Remember that you can use `?read.csv` to get help on how to use this function.
 
 
 ```{r csv, results='hide', echo=FALSE}
@@ -511,7 +511,7 @@ read.csv("iris.csv", stringsAsFactors = FALSE)
 
 ```
 
-You should now see a table of information from the iris dataset printed out on your console. In this case R has read the data and shown us what it found, but becuase we have not assigned it to a data object it was not retained in the R working environment. Let's try again, this time assign the dataset to a data object using the ***<-*** operator.
+You should now see a table of information from the iris dataset printed out on your console. In this case R has read the data and shown us what it found, but becuase we have not assigned it to a data object it was not retained in the R working environment. Let's try again, this time assign the dataset to a data object using the `<-` operator.
 
 
 ```{r csv2, results='hide'}
@@ -531,9 +531,9 @@ d
 
 ```
 
-Wow! That pretty much filled up your console with a bunch of numbers. Let's try using the ***head()*** function to get just a summary of the first few records for the dataset.
+Wow! That pretty much filled up your console with a bunch of numbers. Let's try using the `head()` function to get just a summary of the first few records for the dataset.
 
-```{r iris2, echo=FALSE}
+```{r iris2}
 
 head(d)
 
@@ -544,9 +544,9 @@ head(d, 10)
 
 What if I want to know how many rows or columns (or both) are in a dataset?
 
-- Try the ***nrow()***, ***ncol()***, and ***dim()*** functions.
+- Try the `nrow()`, `ncol()`, and `dim()` functions.
 
-```{r iris3, echo=FALSE}
+```{r iris3}
 
 nrow(d)
 
@@ -557,14 +557,16 @@ dim(d)
 
 ```
 
-By the way, the *iris* dataset is a [pretty famous dataset in R land](https://twitter.com/kareem_carr/status/1156279166276386816). It's actually one of the datasets provided with base R via the package "datasets()" to allow for simple illustrations of R functions and is widely used for demonstrations and worked examples for many of the more widely used R packages such as dplyr and ggplot2. Want to know how to access these mysterious, freely provided datasets? 
+By the way, the `iris` dataset is a [pretty famous dataset in R land](https://twitter.com/kareem_carr/status/1156279166276386816). It's actually one of the datasets provided with base R via the package "datasets()" to allow for simple illustrations of R functions and is widely used for demonstrations and worked examples for many of the more widely used R packages such as dplyr and ggplot2. Want to know how to access these mysterious, freely provided datasets? 
 
--Just type ***data()***
+-Just type `data()`
 
-You should now have a second tab open in your main R-Studio window called "R data sets".
+You should now have a second tab open in your main R-Studio window called "R data sets". You can pull any of these datasets into your working environment in R using the command  `data(dataset name)`.
 
 -Try assigning one of these datasets to a new data object called **ds** using the name of the dataset provided in the "R data sets" tab.
 -Then take a look at the data, get a summary of the first 5 records, and gather information on its structure.
+
+For example for the `mtcars` dataset I get:
 
 ```{r mtcars, echo=FALSE}
 

@@ -371,7 +371,7 @@ summary {
 
 
 <p>Today we’ll start by familiarizing ourselves with the RStudio Graphical User Interface (GUI) and basic R commands and operators. We’ll also examine Git version control and R Markdown for making “pretty” documents.</p>
-<div id="objectives" class="section level2 tabset">
+<div id="objectives" class="section level2">
 <h2>Objectives</h2>
 <ul>
 <li>Learn how to navigate and customize the RStudio GUI</li>
@@ -380,43 +380,66 @@ summary {
 <li>Familiarize ourselves with the R Markdown structure and .git version control</li>
 <li>Learn how to import data, create data, explore its structure, and perform basic operations</li>
 </ul>
+</div>
+<div id="before-next-class" class="section level2">
+<h2>Before Next Class</h2>
+<ul>
+<li>Complete Lab Assignment 1</li>
+<li>Read Chapters 4 through 8 (except for the last section of each chapter) of <a href="https://bookdown.org/ndphillips/YaRrr/basics.html">YaRrr! The Pirate’s Guide to R</a></li>
+</ul>
+</div>
+<div id="acknowledgments" class="section level2 tabset">
+<h2>Acknowledgments</h2>
+<p>I am a strong believer in open code, open access, open resources, and not reinventing the wheel. That being said, while I attribute sources within this document, I’d like to acknowledge upfront those whose hard work I have shamelessly drawn from or used as reference.</p>
+<ul>
+<li>Jonathan Gilligan’s <a href="https://github.com/gilligan-ees-3310-2020">Global Climate Change course materials</a></li>
+<li><a href="https://bookdown.org/ndphillips/YaRrr/basics.html">YaRrr! The Pirate’s Guide to R</a></li>
+<li><a href="https://learning.oreilly.com/library/view/the-r-book/9780470510247/05_chapter-01.html#ch1">The R Book: Chapter 1</a></li>
+<li><a href="http://www.cookbook-r.com/Basics/Information_about_variables/">Cookbook for R</a></li>
+</ul>
 <hr />
 <div id="getting-started-with-rstudio" class="section level3">
 <h3>Getting Started with RStudio</h3>
 <ul>
-<li>Let’s start off by opening up RStudio and setting up the Graphical User Interface (GUI). (A written guide to much of this information can be found in <a href="https://learning.oreilly.com/library/view/the-r-book/9780470510247/05_chapter-01.html#ch1">The R Book: Chapter 1</a>. Note that some of the information in this source is outdated.)
+<li><p>Let’s start off by opening up RStudio and setting up the Graphical User Interface (GUI). (A written guide to much of this information can be found in <a href="https://learning.oreilly.com/library/view/the-r-book/9780470510247/05_chapter-01.html#ch1">The R Book: Chapter 1</a>. Note that some of the information in this source is outdated.)</p>
 <ul>
 <li>Go ahead and check out this source. You can sign in for free using your university email address.</li>
 </ul></li>
 <li><p>If you would like to change the display settings go to Tools –&gt; Global Options –&gt; Appearance and choose a new “Editor Theme”. (My personal preference is “cobalt”.)</p></li>
 <li><p>Now lets check out the version and citation information for R.</p></li>
 </ul>
-<p>Type the following into the command window to the right of the <strong>&gt;</strong>. Hit enter after each command.</p>
+<p>Type the following into the command console window (lower left) to the right of the <code>&gt;</code></p>
+<p>Hit enter after each command.</p>
 <pre class="r"><code>R.Version()
 
 citation()</code></pre>
-<p>Note: In R <strong>( )</strong> indicate that we are working with a function. The parentheses hold the arguments that must be answered in order for a function to run. For example: if we wanted to calculate the mean value of a vector of values we would need to provide, at the very least, that vector of values to the function that calculates the mean. In some cases, such as those run above, no arguments need to be supplied. In these cases, R will refer to some pre-established default. In these tutorials I will <strong><em>bold and italicize</em></strong> the names of functions within the text.</p>
 <hr />
+<p>Note: In R <code>( )</code> immediately following a word indicate that we are working with a function. The parentheses hold the arguments that must be answered in order for a function to run. For example: if we wanted to calculate the mean value of a vector of values we would need to provide, at the very least, that vector of values to the function that calculates the mean. In some cases, such as those run above, no arguments need to be supplied. In these cases, R will refer to some pre-established default. In these tutorials I will use <code>this font</code> to denote functions, oeprators, and code within the text.</p>
 </div>
 <div id="packages" class="section level3">
 <h3>Packages</h3>
-<p>If you did the reading and/or have played around with R a little you may be wondering what <em>packages</em> are and why there are so many of them.</p>
+<p>If you have played around with R a little you may be wondering what <em>packages</em> are and why there are so many of them.</p>
+</br>
 <center>
 <img src="data:image/jpeg;base64,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" />
 </center>
-<p>Simply put packages are user-developed collections of tools and functions that work in the R environment. These packages are what make R so powerful, but at times so frustrating. As tools developed by R users for R users many of the packages focus on simplifying the use of R for specific applied science and data analysis tasks. (<strong>REALLY HELPFUL!</strong>) This means that your average R user, like you and me, can focus on the science instead of worrying about the nitty gritty details of the mathematics and programming behind the methods. However, this also means that each package has its own unique syntax, function names and argument calls, user support documentation, update timing (and sometimes no updates), and occasionally even data classes. (<strong>REALLY FRUSTRATING!</strong>) And because there are so many packages it is unrealistic to expect to become an expert in them all. Most R users frequently reference the R help and other online forums when they can’t remember the name of a specific function, or how to structure an expression, etc…. However, once you learn how to find packages that can help you solve your problems, read the documentation, navigate the forums and search for help you’ll find that there are very few data problems that can’t be tackled in R.</p>
+<p></br></p>
+<p>Simply put packages are user-developed collections of tools and functions that work in the R environment. These packages are what make R so powerful, but at times so frustrating. As tools developed by R users for R users many of the packages focus on simplifying the use of R for specific applied science and data analysis tasks. (<strong>REALLY HELPFUL!</strong>) This means that your average R user, like you and me, can focus on the science instead of worrying about the nitty gritty details of the mathematics and programming behind the methods.</p>
+<p>However, this also means that each package has its own unique syntax, function names and argument calls, user support documentation, update timing (and sometimes no updates), and occasionally even data classes. (<strong>REALLY FRUSTRATING!</strong>) And because there are so many packages it is unrealistic to expect to become an expert in them all. Most R users frequently reference the R help and other online forums when they can’t remember the name of a specific function, or how to structure an expression, etc….</p>
+<p>Don’t worry. Once you learn how to: find packages that can help you solve your problems, read the documentation, navigate the forums and search for help you’ll find that there are very few data problems that can’t be tackled in R.</p>
+<hr />
 <ul>
 <li>While R comes with plenty of base functions (you don’t need to install a package to use them) and a few standard packages most packages will need to be manually installed onto your computer.</li>
 </ul>
-<p>To install a package simply type <strong><em>install.packages(“name of package”)</em></strong> in the command line.</p>
+<p>To install a package simply type <code>install.packages(&quot;name of package&quot;)</code> in the command line.</p>
 <ul>
 <li>To actually make use of an installed package during an active R session you need to load the information (functions, help documents, etc…) contained in the package.</li>
 </ul>
-<p>To load the package type <strong><em>library(package name)</em></strong> in the command line.</p>
+<p>To load the package type <code>library(package name)</code> in the command line.</p>
 <ul>
 <li>Occasionally you may need to update your packages. (Some packages are interdependent and changes in one may neccessitate an update of the other in order to avoid errors.)</li>
 </ul>
-<p>Simply type <strong><em>update.packages()</em></strong> in the command line to update all packages.</p>
+<p>Simply type <code>update.packages()</code> in the command line to update all packages.</p>
 <p>Try the following:</p>
 <pre class="r"><code>install.packages(&quot;sf&quot;) #sf is a fantastic package for handling spatial data that we will use often later in the semester
 
@@ -429,16 +452,18 @@ update.packages()
 #Comments are this girls best friend as they allow me to understand what I did when I come back to a script after a few days or weeks or ...
 #They are also helpful for explaining your logic/process for others that you share your code with.
 #Main point: comment often, comment well</code></pre>
-<hr />
+<p><strong>NOTE:</strong> If you want to run another install packages command for a different package (e.g. ggplot2) you can simply hit the <strong>up arrow</strong> to pull up a previous command on the current command line. You can then edit the name of the package and hit enter to run the command as normal. Becuase of this rather convenient feature you should NOT attempt to use the arrow keys to navigate through the command console output (say you had R return a long list and you want to go back and take a look at it). Instead use the scroll bar.</p>
+<p></br></p>
 </div>
 <div id="getting-help" class="section level3">
 <h3>Getting Help</h3>
-<p>Now lets check out a few ways to access R help. While it is normal to consuct web searches to assist with writing code to solve some complex problem in many cases (e.g. wrong syntax used, can’t remember specific function arguments that need to be referenced) a simple review of the R Documentation can help you pinpoint and correct the issue.</p>
+<p>Now lets check out a few ways to access R help. While it is normal to conduct web searches to assist with writing code to solve complex problems in many cases (e.g. wrong syntax used, can’t remember specific function arguments that need to be referenced) a simple review of the official R Documentation can help you pinpoint and correct the issue.</p>
+<p>To access the R Documentation on how to use a function we can use the following:</p>
 <ul>
-<li>If you know the name of the function you need help with type a <strong><em>?</em></strong> followed by the function name</li>
-<li>If you don’t remember the exact function name but know the topic use <strong><em>??</em></strong> followed by the topic or <strong><em>help.search(“topic”)</em></strong></li>
+<li>If you know the name of the function you need help with type a <code>?</code> followed by the function name</li>
+<li>If you don’t remember the exact function name but know the topic use <code>??</code> followed by the topic or <code>help.search(&quot;topic&quot;)</code></li>
 </ul>
-<p>Try these…</p>
+<p>Try the following one at a time.</p>
 <pre class="r"><code>?read.csv
 
 ?hist
@@ -446,21 +471,185 @@ update.packages()
 ??csv
 
 ??histogram</code></pre>
+<p>Notice the small window in the lower right-hand corner of your screen? Here we can see the Help documentation related to these functions/topics.</p>
+<p>Remember the function name but can’t remember what the arguments to that function are or how they are structured/ordered? In the command console simply start typing in the function name and hover your mouse over the little pop-up window for the function you want, or put in the parentheses after the function name and check out the little yellow pop-up window before you continue typing any arguments.</p>
+<p>I personally find the auto-suggestion, auto-fill, and function argument pop-up window to be the most useful parts of the R Studio interface and use them every time I work in R.</p>
 <hr />
+<p>Of course there are numerous online sources of R help as well. Let’s start with the more <em>official</em> sources of online help.</p>
+<ul>
+<li>CRAN stands for <em>The Comprehensive R Archive Network</em> and contains complete package doucmentation including: package reference manuals, package websites, and package vignettes.
+<ul>
+<li>Package reference manuals are essentially a compilation of the official R Documentation for all functions in a package.</li>
+<li>Package websites will often provide a nice html formatted version of the R documenation, perhaps with more worked examples, and/or provide access to the code that makes up the package itself.</li>
+<li>Package vignettes are wonderful walkthrough tutorials that provide a more thorough examination of how a package and its functions can be used. Of course, these are produced by the package creators so they come in different flavors and some are more useful than others.</li>
+</ul></li>
+</ul>
+<p><strong>Note</strong>: I’m cheating a bit here by saying this is online help. While you will typically access this info online, for packages you have installed most of this information should actually exist in your R library on your computer.</p>
+<ul>
+<li>Let’s go to the <a href="https://cran.r-project.org/">CRAN website</a>.</li>
+<li>On the left, click on <strong>Packages</strong> and scroll down to <strong>dplyr</strong></li>
+</ul>
+<p>You should now see a page that provides: the name of the package along with a brief description, information on the latest version and when it was published, the authors of the package, the website, a link to the reference manual, and links to a set of vignettes amoung other things.</p>
+<ul>
+<li>Take a quick look at the reference manual. In some cases this is the best place to go to try to understand what a function is doing.</li>
+<li>Now take a look at the <strong>Introduction to dplyr</strong> vignette. See how these might be really useful?</li>
+</ul>
+<p>If you are looking for a package that does a specific thing (e.g. multilevel modeling) and easy way to find one is to search CRAN (using the search menu accessible from the CRAN homepage) by that topic.</p>
+<ul>
+<li>For more tutorials and worked examples from the R community check <a href="https://www.r-bloggers.com/">R-bloggers</a>.</li>
+<li>For help with various technical coding challenges I reccomend <a href="https://stackexchange.com/">StackExchange</a>.</li>
+</ul>
+<p>There are also numerous google groups dedicated to specific R packages and google searches are generally fruitful provided you specify that you are searching for an answer to an R problem, provide plenty of detail, and try out different search terms.</p>
+<p></br></p>
 </div>
 <div id="r-scripts-r-projects-and-r-markdown" class="section level3">
 <h3>R Scripts, R Projects, and R Markdown</h3>
+<p>Thus far we have used only the R command console to do calculations and assign data. However, if we want to be able to go back and reproduce a set of calculations or want to share our code with others we will want a way to save and store and modify the R commands and operations we run. The simplest way to do this is using an <strong>R script</strong>. An R script is simply a text document (with a .R file ending) in which we write out all the R commands we want to run and descriptive comments about these commands. In R Studio we can then select and run commands from the script.</p>
+<ul>
+<li>Create a new R script by going to File –&gt; New File –&gt; R Script</li>
+<li>In this new R script which should pull up in the Source window (upper left) in R Studio type up all the R commands we have run thus far and then save the script to a folder named “Lab 1”.</li>
+<li>Try running the first line of code by placing your cursor next to it then typing <strong>cntrl + enter</strong> or using the <strong>Run</strong> menu in the upper right corner of the script window (Run Selected Line).</li>
+<li>OK, now try running all the lines of code by highlighting all lines of code then typing <strong>cntrl + enter</strong> or using the <strong>Run</strong> menu.</li>
+</ul>
+<p>Easy peasy, right?</p>
 <hr />
+<p><strong>OK, so what is an <em>R Project</em>?</strong></p>
+<p>An R Project is essentially a special R folder that holds your R materials related to a specific topic. Technically, it a <strong><em>working directory</em></strong><em>, a file path on your computer that maps where information should be coming from and going to that is desgnated with a .RProj file. In R you work out of a single active working directory at a time. So if we want to pull data files from other folders on our computer we have to specify the full path (e.g.</em>“C:/Users/jane/Documents/GEOG 728/mydata.csv”*) instead of just writing out the file name “mydata.csv”. I’ll show you how to check and set your working directory next week, but for simply know that using a project simplifies things a bit by streamlining and automating the working directory references in R.</p>
+<p>Your R Projects can hold R Scripts, R Markdown files, data, text files, images, etc… and you can easily organize these items in an R Project by creating sub folders.</p>
+<ul>
+<li>Let’s try creating a new R Project by going to File –&gt; New File –&gt; R Project –&gt; Existing Directory –&gt; Navigate to your “Lab 1” folder and assign the R Project there</li>
+<li>In this new R Project you should see a list of Files in the window in the lower right. Click on your script to pull it up in the main Source window.</li>
+</ul>
+<hr />
+<p><strong>Now the final, and perhaps most terrifying, R file type. R Markdown!</strong> * Much of this section comes from Jonathan Gilligan’s great R Markdown Intro which can be found <a href="https://github.com/gilligan-ees-3310-2020/lab-01-documentation">here</a>.</p>
+<p>R Markdown is a fantastic tool that allows us to combine text and chunks of R code and their output into a single document. These documents are stored as .Rmd files and use a plain text formatting system called <strong>Markdown</strong> to create pretty documents that can be converted to HTML documents or web pages, PDFs, or even MS Word documents. The big advantage here is that we can produce not just cool looking documents, but we can also integrate instructions or background information with our actual analysis and results. Making it easier for others to understand what we did, how we did it, and what we found.</p>
+<p>Why did I say it can be terrifying? Is it because I’m easily scared?</p>
+<p>Well, yes, but also becuase R Markdown files can be somewhat intimidating when you first start working with them as you have to handle both Markdown text formatting and R code as well as the various organizational and formatting rules for integrating the two. But don’t let that worry you too much we’ll start simple and there are plenty of resources out there for those of you who want to get real fancy.</p>
+<p>As proof that it’s not so terrifying after all, this tutorial was made using R Markdown. Later on I’ll show you where you can download the .Rmd version to use as a template for your own work if you so desire.</p>
+<ul>
+<li>Let’s create a new R Markdown file in our R Project by going to File –&gt; New File –&gt; R Markdown –&gt; Choose a Document –&gt; Set the title as “My First Markdown” –&gt; Select html as the default format</li>
+</ul>
+<p>At the top of your new .Rmd you should see something like the following.</p>
+<pre><code>---
+title: &quot;My First Markdown&quot;
+author: &quot;Kate Nelson&quot;
+date: &quot;1/9/2020&quot;
+output: html_document
+---</code></pre>
+<p>This is the document header information. All the information here, except for the output setting will be printed at the top of the final document you create from this file. To turn an RMarkdown document into an HTML, PDF, or Microsoft Word document, you just click on the “Knit” button in RStudio. If you click on the word “Knit” on the button, RStudio will turn the RMarkdown document into the default format specified in the header information under <strong>output:</strong>. To knit the document into a different output format, click on the arrow just to the right of the word “Knit,” and select the output format you want.</p>
+<p>Just below the header information you will see an R code chunk called <strong>R setup</strong>. Code chunks can be distinguished by the <strong>```</strong> at the beginning and end of the chunk. Code chunks also have a slightly different background color as text. This code chunk holds information about how we want to run and process R code in the .Rmd. So we could load package libraries here, etc…</p>
+<ul>
+<li>For now leave this alone and go down to the text section below.</li>
+</ul>
+<p>Any line of text that begins with one or more hash symbols (“#”) and is preceded by a blank line is treated as a section header. (In code chunks the “#” character still denotes a comment.) Top-level section headers have a single hash, and subsections, subsubsections, etc. use two, three, etc. hashes.</p>
+<pre><code># This is a top-level section header
+
+## This is a subsection
+
+### This is a subsubsection
+
+# This is another section</code></pre>
+<ul>
+<li>Try changing the existing heading to “Getting Started with R”</li>
+</ul>
+<p>Any block of one or more lines of text, with a blank line before and a blank line after is treated as a single paragraph. To separate paragraphs, put a blank line between them:</p>
+<pre><code>This is one paragraph.
+It stretches over several consecutive lines,
+but it will be formatted 
+as a single paragraph.
+
+This is another paragraph.
+The blank line between the two
+blocks of text tells Markdown
+that they are separate paragraphs</code></pre>
+<ul>
+<li>Try adding some text describing what you did in your starter script that we created earlier.</li>
+</ul>
+<p>To make <em>italic text</em> and <strong>boldface text</strong> you surround the text with underscores or asterisks. A single underscore or asterisk means italic, two means boldface, and three means both italic and boldface:</p>
+<pre><code>This is _italic text_. This is *also italic text*. __This is boldface__ and 
+**so is this**. ***This is bold italic***. This is ~~strikethrough~~, perhaps 
+to indicate an error.</code></pre>
+<ul>
+<li>Try formatting some of your newly written text as italic or bold or both.</li>
+</ul>
+<p>You can make bulleted or numbered lists easily in Markdown. Simply begin a line with an asterisk, hyphen, or plus sign. Numbered lists can be made by using a number followed by a period.To make a sub-list, just indent the lines of the sublist by four spaces.</p>
+<pre><code>* This is a list
+
+* This is the second item of the list.
+
+    * This is a sub-list
+    
+        A list item can have several paragraphs. Just ident the continuation 
+        by four additional spaces and do not begin it with an asterisk.
+        If you have multiple lines with no blank line separating them,
+        Markdown treats them as a single paragraph.
+
+* This is the main list again.
+  Just as with other things, you can break a single list item into several lines,
+  and as long as there is no blank line between them, Markdown knows to treat
+  them as a single paragraph.</code></pre>
+<ul>
+<li>Try creating a list (for demonstration purposes only so text doesn’t haven’t mean anything in particular)</li>
+</ul>
+<p>As I said before, one of the best reasons to use R Markdown documents is becuase we can integrate text with R computation. To enter R expressions in an RMarkdown document, we use “code blocks” and “inline code”. Code blocks are useful if we are doing a calculation, and inline code is useful if you just want to insert a number (maybe one you have calculated in a code block) into the middle of a line of text.</p>
+<p>Code blocks begin and end with three consecutive “back-tick” characters:</p>
+<pre><code>```{r code_block_name, options}
+   # code goes here, for example
+   1+1``` 
+</code></pre>
+<p>Each code chunk needs to have a unique name and we can specify options that will: show or hide the code, show or hide the results, evaluate the code or not, etc…</p>
+<p>We can assign numbers to variables and do computations in a code chunk much as we would do in an R Script. If we ask the R code to return an object it will be printed immediately below the code chunk as seen below.</p>
+<pre class="r"><code>sigma &lt;- 5.67E-8
+I_solar &lt;- 1350 # watts per square meter
+albedo &lt;- 0.3
+I_absorbed &lt;- I_solar * (1 - albedo)
+T &lt;- (I_absorbed / (4 * sigma))^0.25
+T</code></pre>
+<pre><code>## [1] 254.0664</code></pre>
+<p>Code blocks can also be used to include tables and graphs in our document. </br></p>
+<p>Inline code appears between single back-ticks <code>`r 1+1`</code></p>
+<p>We can use inline code to print the value of an R expression in the middle of a line of text. For example using inline code <code>T =  `r T`</code> will give T = 254.0663741.</p>
+<p>Inline code is very useful because it lets us ask R to automatically insert a number into the text. This means that every time we knit the document, that number is generated by R. If you write a report and then realize that there was a problem with the data or the analysis, you can just fix the problem and re-knit the report using the corrected data and analysis code. You don’t need to manually go through a separate document and edit the numbers to update them with the latest results from your analysis. RMarkdown will do that for you, if you used inline code to insert the numbers into your text.</p>
+<p>Thus, a bit of extra work at the beginning to set up the document and analysis using RMarkdown saves lots of time later on by making it trivial to update the document.</p>
+<p>There is MUCH MUCH more that can be done with Markdown formatting including adding images and hyperlinks or even tabs (like in this tutorial) that you can explore on your own using the following references:</p>
+<ul>
+<li><a href="https://github.com/gilligan-ees-3310-2020/lab-01-documentation">Jonathan Gilligan’s R Markdown Intro</a></li>
+<li><a href="https://rstudio.com/wp-content/uploads/2019/01/Cheatsheets_2019.pdf">The R Markdown Cheatsheet</a> (This can also be found under the Help menu.)</li>
+<li><a href="https://bookdown.org/yihui/rmarkdown/html-document.html#tabbed-sections">R Markdown the Definitive Guide</a></li>
+</ul>
+<p>You can also pull up the Markdown Quick Reference guide in the help window of the R Studion GUI. Go to Help –&gt; Markdown Quick Refence</p>
+<p>For now let’s wrap up by trying to actually convert our markdown file into an html file.</p>
+<ul>
+<li>Click the <strong>Knit</strong> button at the top of the main window.</li>
+</ul>
+<p>A html version of your .Rmd should have popped up in a second window. How does it look?</p>
+<p></br></p>
 </div>
 <div id="version-control" class="section level3">
 <h3>Version Control</h3>
+<p>Full Disclosure *Much of this section comes from Jonathan Gilligan’s introduction to Reproducible Research which can be found <a href="https://github.com/gilligan-ees-3310-2020/lab-01-documentation">here</a>.</p>
+<p>As you edit both your text and the R scripts you use for your analysis, it is valuable to be able to keep track of changes. For instance, if your analysis is working well, and then you edit something and it stops working it is useful to be able to go back and look at what changed between the time when it was working and when it stopped working.</p>
+<p>Version (or revision) control systems allow you to easily keep track of changes you make to your files, and it is increasingly becoming a standard practice to use version control in data analytics and computationally intensive research.</p>
+<p>We will be using a revision control tool called <code>git</code>. Not only can we use GIT version control in R via our R Projects, but there is a web site called <a href="https://github.com">github.com</a>, which allows people to store their version controlled projects in the cloud and serves as a platform for sharing of and collaboration on projects. I personally use github to release scripts and models developed in my research, and there is an educational site connected to github, which we will use for some class assignments later in the semester.</p>
+<p>For now though, we will start by using local version control through R.</p>
+<ul>
+<li>Let’s enable GIT version control on our R project by going to Tools –&gt; Project Options–&gt; GIT/SVN and enable GIT</li>
+</ul>
+<p>You should now have in the upper-right window a tab that says <strong>Git</strong>. This window will show you a list of all the files in your R PRoject that have been modified. If we click on the <strong>Commit</strong> button we should be able to see what has been changed in each document as well as a history of these changes. Right now you won’t see anything becuase you haven’t changed any files in your R Project since we enabled version control.</p>
+<ul>
+<li>Add another paragraph of random text to your R Markdown file and save it. Then click the <strong>Commit</strong> button.</li>
+</ul>
+<p>If you examine your markdown file in the commit window you should now see some text in the preview that is highlighted in <span style="color:green"><strong>green</strong></span>. The git version control is telling us that the only change made was to add this text. (Deletions are shown in <span style="color:red"><strong>red</strong></span>.) If we think that this is a good and significant change to keep we should type a commit message like “added some random text” and click the “Commit” button. This will ask git to remember what the document looked like at this exact moment in our revisions. Say I changed a code chunk and somehow break everything. Instead of trying to remember exactly what it looked like before I messed it up I could just go back to the <strong>History</strong> section in the git commit window and restore that earlier version of my document. Of course, this means that I actually need to <strong>commit</strong> my changes frequently (not just save the document).</p>
+<ul>
+<li>Go ahead and commit your changes to your .Rmd</li>
+</ul>
 <hr />
 </div>
 <div id="getting-started-with-data-in-r" class="section level3">
 <h3>Getting Started with Data in R</h3>
 <p>Whew, that was a lot of information. Finally, we’re ready to get cooking with some data. But wait! First we need to get some data into R.</p>
 <ul>
-<li>To keep things simple let’s start by just making a few variables to work with. Type the following code in a new R Script, then select the lines of code you want to run and hit <strong>cntrl+Enter</strong>.</li>
+<li>To keep things simple let’s start by just making a few variables to work with. Type the following code in your R Script, then select the lines of code you want to run and hit <strong>cntrl+Enter</strong>.</li>
 </ul>
 <pre class="r"><code>x &lt;- 6
 y &lt;- 8
@@ -470,7 +659,12 @@ let &lt;- LETTERS[1:10]
 
 # I&#39;m pulling heavily from http://www.cookbook-r.com/Basics/Information_about_variables/ for this</code></pre>
 <p>So what did we just do? We just created new numerical data objects called “x” and “y” with a value of 6 and 8, a new vector data object called “n” with integer values 1 through 10, a new vector called “let” that includes the first 10 letters of the alphabet, and a data frame that combines the two vectors “n” and “let”.</p>
-<p><strong>Some Important Notes</strong> - <strong>&lt;-</strong> is an operator that assigns a value, vector, dataframe, etc… to the thing that is pointed to - <strong>:</strong> is an operator that identifies a sequence. It can be used to create a new sequence or to reference a sequence of values or columns, etc… within an existing dataset. - <strong>LETTERS</strong> is a set of constants built into base R, namely the 26 letters of the alphabet in upper-case. Check ?Constants for other constants available.</p>
+<p><strong>Some Important Notes</strong></p>
+<ul>
+<li><p><code>&lt;-</code> is an operator that assigns a value, vector, dataframe, etc… to the thing that is pointed to</p></li>
+<li><p><code>:</code> is an operator that identifies a sequence. It can be used to create a new sequence or to reference a sequence of values or columns, etc… within an existing dataset.</p></li>
+<li><p><code>LETTERS</code> is a set of constants built into base R, namely the 26 letters of the alphabet in upper-case. Check ?Constants for other constants available.</p></li>
+</ul>
 <p>Let’s check to make sure these variables really are what we think they are by asking R to return their values.</p>
 <pre class="r"><code>x </code></pre>
 <pre><code>## [1] 6</code></pre>
@@ -505,7 +699,7 @@ let &lt;- LETTERS[1:10]
 <pre><code>## [1] NA</code></pre>
 <pre class="r"><code>sum(z, na.rm=T)</code></pre>
 <pre><code>## [1] 25</code></pre>
-<p>Great! Notice that null values will throw off most calculations (and most real dataset have nulls) so we need to specify what to do with them in the function if we want a value returned. Often we choose to remove or ignore nulls using <strong>na.rm=TRUE</strong>, but this is not always the appropriate choice.</p>
+<p>Great! Notice that null values will throw off most calculations (and most real dataset have nulls) so we need to specify what to do with them in the function if we want a value returned. Often we choose to remove or ignore nulls using <code>na.rm=TRUE</code>, but this is not always the appropriate choice.</p>
 <ul>
 <li>Did you notice if the log function calculates the natural logarithim or the base 10 log?</li>
 <li>What would you add to the code above if you wanted to retain one of these answers for later use?</li>
@@ -518,12 +712,13 @@ let &lt;- LETTERS[1:10]
 <p>Now on to bigger and better things… lets try one of the most basic and important tasks in R: <strong>importing data</strong>. Yay!</p>
 <p>R is wonderfully flexible with the types of data you can import and work with. Got a csv or text file? Base R can handle that. What about an excel file or shapefile?</p>
 <center>
-There’s a package for that!
+<strong>There’s a package for that!</strong>
 </center>
+<p></br></p>
 <ul>
-<li>Let’s start by loading a csv using the <strong><em>read.csv</em></strong> function. Download the file <em>iris.csv</em> from Canvas into your R project folder then try loading it into R. Remember that you can use <strong><em>?read.csv</em></strong> to get help on how to use this function.</li>
+<li>Let’s start by loading a csv using the <code>read.csv</code> function. Download the file <strong><em>iris.csv</em></strong> from Canvas into your R project folder then try loading it into R. Remember that you can use <code>?read.csv</code> to get help on how to use this function.</li>
 </ul>
-<p>You should now see a table of information from the iris dataset printed out on your console. In this case R has read the data and shown us what it found, but becuase we have not assigned it to a data object it was not retained in the R working environment. Let’s try again, this time assign the dataset to a data object using the <strong><em>&lt;-</em></strong> operator.</p>
+<p>You should now see a table of information from the iris dataset printed out on your console. In this case R has read the data and shown us what it found, but becuase we have not assigned it to a data object it was not retained in the R working environment. Let’s try again, this time assign the dataset to a data object using the <code>&lt;-</code> operator.</p>
 <pre class="r"><code>d&lt;-read.csv(&quot;iris.csv&quot;, stringsAsFactors = FALSE)</code></pre>
 <p>OK. Now let’s see what we can find out about this dataset. Let’s take a quick look at the data by simply asking R to return the dataset.</p>
 <pre class="r"><code>d</code></pre>
@@ -678,7 +873,8 @@ There’s a package for that!
 ## 148          6.5         3.0          5.2         2.0  virginica
 ## 149          6.2         3.4          5.4         2.3  virginica
 ## 150          5.9         3.0          5.1         1.8  virginica</code></pre>
-<p>Wow! That pretty much filled up your console with a bunch of numbers. Let’s try using the <strong><em>head()</em></strong> function to get just a summary of the first few records for the dataset.</p>
+<p>Wow! That pretty much filled up your console with a bunch of numbers. Let’s try using the <code>head()</code> function to get just a summary of the first few records for the dataset.</p>
+<pre class="r"><code>head(d)</code></pre>
 <pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ## 1          5.1         3.5          1.4         0.2  setosa
 ## 2          4.9         3.0          1.4         0.2  setosa
@@ -686,6 +882,7 @@ There’s a package for that!
 ## 4          4.6         3.1          1.5         0.2  setosa
 ## 5          5.0         3.6          1.4         0.2  setosa
 ## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
+<pre class="r"><code>head(d, 10)</code></pre>
 <pre><code>##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ## 1           5.1         3.5          1.4         0.2  setosa
 ## 2           4.9         3.0          1.4         0.2  setosa
@@ -699,15 +896,19 @@ There’s a package for that!
 ## 10          4.9         3.1          1.5         0.1  setosa</code></pre>
 <p>What if I want to know how many rows or columns (or both) are in a dataset?</p>
 <ul>
-<li>Try the <strong><em>nrow()</em></strong>, <strong><em>ncol()</em></strong>, and <strong><em>dim()</em></strong> functions.</li>
+<li>Try the <code>nrow()</code>, <code>ncol()</code>, and <code>dim()</code> functions.</li>
 </ul>
+<pre class="r"><code>nrow(d)</code></pre>
 <pre><code>## [1] 150</code></pre>
+<pre class="r"><code>ncol(d)</code></pre>
 <pre><code>## [1] 5</code></pre>
+<pre class="r"><code>dim(d)</code></pre>
 <pre><code>## [1] 150   5</code></pre>
-<p>By the way, the <em>iris</em> dataset is a pretty famous dataset in R land. It is actually one of the datasets provided with base R via the package “datasets()” to allow for simple illustrations of R functions and is widely used for demonstrations and worked examples for many of the more widely used R packages such as dplyr and ggplot2. Want to know how to access these mysterious, freely provided datasets?</p>
-<p>-Just type <strong><em>data()</em></strong></p>
-<p>You should now have a second tab open in your main R-Studio window called “R data sets”.</p>
+<p>By the way, the <code>iris</code> dataset is a <a href="https://twitter.com/kareem_carr/status/1156279166276386816">pretty famous dataset in R land</a>. It’s actually one of the datasets provided with base R via the package “datasets()” to allow for simple illustrations of R functions and is widely used for demonstrations and worked examples for many of the more widely used R packages such as dplyr and ggplot2. Want to know how to access these mysterious, freely provided datasets?</p>
+<p>-Just type <code>data()</code></p>
+<p>You should now have a second tab open in your main R-Studio window called “R data sets”. You can pull any of these datasets into your working environment in R using the command <code>data(dataset name)</code>.</p>
 <p>-Try assigning one of these datasets to a new data object called <strong>ds</strong> using the name of the dataset provided in the “R data sets” tab. -Then take a look at the data, get a summary of the first 5 records, and gather information on its structure.</p>
+<p>For example for the <code>mtcars</code> dataset I get:</p>
 <pre><code>##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
 ## Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
 ## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
@@ -750,20 +951,21 @@ There’s a package for that!
 <pre><code>## [1] 32 11</code></pre>
 <pre><code>## [1] 32</code></pre>
 <pre><code>## [1] 11</code></pre>
-<hr />
 </div>
 <div id="lab-assignment" class="section level3">
 <h3>Lab Assignment</h3>
 <p>For your lab assignment due next Wednesday please do the following.</p>
 <ol style="list-style-type: decimal">
-<li>Create an R Project for your lab assignments with version control</li>
-<li>Create an Markdown file (html) titled Lab #1 with your name</li>
+<li>Create an R Project for your lab assignment with version control (already done)</li>
+<li>Create an Markdown file (html) titled Lab #1<br />
+</li>
 <li>In this R Markdown file create a new numerical variable and a new vector of numbers</li>
 <li>Report these produced data objects and then apply at least two functions to each</li>
 <li>Load a dataset from the R datasets package and report summary information on the dataset and its structure</li>
+<li>Sign up for a free student account on github and include your github username in your Markdown file.</li>
 <li>Your R Markdown file should include text describing what you are doing, code chunks where you run actual R code, and text describing the output</li>
-<li>Knit your R Markdown file</li>
-<li>Upload a copy of the knit html and the .rmd file to Canvas</li>
+<li>Use headers and include at least two examples of non-standard text formatting, and one list in your file</li>
+<li>Knit your R Markdown file and upload a copy of the knit .html and the .Rmd file to Canvas</li>
 </ol>
 </div>
 </div>
