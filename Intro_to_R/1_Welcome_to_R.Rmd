@@ -338,21 +338,14 @@ Code blocks begin and end with three consecutive "back-tick" characters:
 Inline code appears between single back-ticks `` `r
 1+1` `` 
 
-We express basic mathematical operations in R similarly to the way we express them 
-in Excel and most programming languages. Addition and subtraction use the
-normal plus and minus signs. Multiplication uses an asterisk, division uses
-a slash ("/"), and powers (exponentiation) uses "^".
 
-R has a lot of mathematical functions you can use, such as `sqrt()`, `log()` 
-(for the natural logarithm), `log10()` for the base-10 logarithm, and so forth.
-
-We can assign numbers to variables using the equals sign:
+We can assign numbers to variables and do computations in a code chunk much as we would do in an R Script:
 ```{r stefan_boltzmann}
-sigma = 5.67E-8
-I_solar = 1350 # watts per square meter
-albedo = 0.3
-I_absorbed = I_solar * (1 - albedo)
-T = (I_absorbed / (4 * sigma))^0.25
+sigma <- 5.67E-8
+I_solar <- 1350 # watts per square meter
+albedo <- 0.3
+I_absorbed <- I_solar * (1 - albedo)
+T <- (I_absorbed / (4 * sigma))^0.25
 ```
 
 If the last line of a code block is something with a value (e.g., the name of a 
@@ -365,8 +358,7 @@ T
 
 
 We can also print the value of an R expression in the middle of a line of text 
-using inline code `` ` T =  
-`r knitr::inline_expr("T")` ` `` will give T = `r T`.
+using inline code ``  T =  `r knitr::inline_expr("T")`  `` will give T = `r T`.
 
 Inline code is very useful because it lets us ask R to automatically insert a 
 number into the text. This means that every time we knit the document, that number 
