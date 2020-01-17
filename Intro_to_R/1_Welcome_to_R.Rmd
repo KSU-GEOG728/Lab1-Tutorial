@@ -271,8 +271,9 @@ to indicate an error.
 
 
 You can make bulleted or numbered lists easily in Markdown. Simply begin a line 
-with an asterisk, hyphen, or plus sign.
-To make a sub-list, just indent the lines of the sublist by four spaces.
+with an asterisk, hyphen, or plus sign. Numbered lists can be made by using a 
+number followed by a period.To make a sub-list, just indent the lines of the 
+sublist by four spaces.
 
 ```
 * This is a list
@@ -280,47 +281,16 @@ To make a sub-list, just indent the lines of the sublist by four spaces.
 * This is the second item of the list.
 
     * This is a sub-list
-
-    * This is another item in the sub-list
     
         A list item can have several paragraphs. Just ident the continuation 
         by four additional spaces and do not begin it with an asterisk.
         If you have multiple lines with no blank line separating them,
         Markdown treats them as a single paragraph.
 
-        Here is a third paragraph of continuation.
-
 * This is the main list again.
   Just as with other things, you can break a single list item into several lines,
   and as long as there is no blank line between them, Markdown knows to treat
   them as a single paragraph.
-```
-
-To make numbered lists, start them with a number and a period:
-
-```
-1. This is a list
-
-1. This is the second item of the list. Notice that I keep using the 
-   numeral "1", but Markdown automatically increments the numbers
-   for the list items.
-
-    a) This is a sub-list
-
-    a) This is another item in the sub-list
-    
-        A list item can have several paragraphs.
-        
-        Here is a third paragraph of continuation.
-        
-        i) this is a sub-sub list numbered with Roman numerals
-
-        i) this is a sub-sub list numbered with Roman numerals
-
-        i) this is a sub-sub list numbered with Roman numerals
-
-1. This is the main list again.
-
 ```
 
 - Try creating a list (for demonstration purposes only so text doesn't haven't mean anything in particular)
@@ -335,29 +305,28 @@ Code blocks begin and end with three consecutive "back-tick" characters:
    1+1``` 
 </code></pre>
 
-Inline code appears between single back-ticks `` `r
-1+1` `` 
+
+Each code chunk needs to have a unique name and we can specify options that will: show or hide the code, show or hide the results, evaluate the code or not, etc...
 
 
-We can assign numbers to variables and do computations in a code chunk much as we would do in an R Script:
+We can assign numbers to variables and do computations in a code chunk much as we would do in an R Script. If we ask the R code to return an object it will be printed immediately below the code chunk as seen below.
 ```{r stefan_boltzmann}
 sigma <- 5.67E-8
 I_solar <- 1350 # watts per square meter
 albedo <- 0.3
 I_absorbed <- I_solar * (1 - albedo)
 T <- (I_absorbed / (4 * sigma))^0.25
-```
-
-If the last line of a code block is something with a value (e.g., the name of a 
-variable or a mathematical expression, as opposed to an assignment with an equals 
-sign), then R will show that value:
-
-```{r surface_temperature}
 T
 ```
 
+Code blocks can also be used to include tables and graphs in our document.
+</br>
 
-We can also print the value of an R expression in the middle of a line of text 
+
+Inline code appears between single back-ticks `` `r
+1+1` `` 
+
+We can use inline code to print the value of an R expression in the middle of a line of text. For example 
 using inline code ``  T =  `r knitr::inline_expr("T")`  `` will give T = `r T`.
 
 Inline code is very useful because it lets us ask R to automatically insert a 
@@ -373,25 +342,16 @@ Thus, a bit of extra work at the beginning to set up the document and analysis
 using RMarkdown saves lots of time later on by making it trivial to update the 
 document.
 
-Code blocks also allow us to include graphs in our document:
-
-
-<pre><code>```{r graph_example, fig.cap = "This is a plot of pressure versus temperature."}
-ggplot(pressure, aes(x = temperature, y = pressure)) +
-  geom_line() +
-  geom_point() +
-  labs(x = "Temperature", y = "Pressure")```</code></pre>
 
 
 
-
-
-There is much much more that can be done with Markdown formatting including adding images and hyperlinks or even tabs (like in this tutorial)  that you can explore on your own using the following references:
+There is MUCH MUCH more that can be done with Markdown formatting including adding images and hyperlinks or even tabs (like in this tutorial)  that you can explore on your own using the following references:
 
 - [Jonathan Gilligan's R Markdown Intro](https://github.com/gilligan-ees-3310-2020/lab-01-documentation)
 - [The R Markdown Cheatsheet](https://rstudio.com/wp-content/uploads/2019/01/Cheatsheets_2019.pdf)
 - [R Markdown the Definitive Guide](https://bookdown.org/yihui/rmarkdown/html-document.html#tabbed-sections)
 
+</br>
 
 
 ### Version Control
