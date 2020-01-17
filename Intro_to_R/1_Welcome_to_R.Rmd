@@ -19,10 +19,19 @@ Today we'll start by familiarizing ourselves with the RStudio Graphical User Int
 - Familiarize ourselves with the R Markdown structure and .git version control
 - Learn how to import data, create data, explore its structure, and perform basic operations
 
-## Before Next Class {.tabset} 
+## Before Next Class 
  - Complete Lab Assignment 1
  - Read Chapters 4 through 8 (except for the last section of each chapter) of [YaRrr! The Pirate's Guide to R](https://bookdown.org/ndphillips/YaRrr/basics.html) 
  
+## Acknowledgments {.tabset}
+
+I am a strong believer in open code, open access, open resources, and not reinventing the wheel. That being said, while I attribute sources within this document, I'd like to acknowledge upfront those whose hard work I have shamelessly drawn from or used as reference.
+
+- Jonathan Gilligan's [Global Climate Change course materials](https://github.com/gilligan-ees-3310-2020)
+- [YaRrr! The Pirate's Guide to R](https://bookdown.org/ndphillips/YaRrr/basics.html)
+- [The R Book: Chapter 1](https://learning.oreilly.com/library/view/the-r-book/9780470510247/05_chapter-01.html#ch1)
+- [Cookbook for R](http://www.cookbook-r.com/Basics/Information_about_variables/)
+
 
 ***
 
@@ -174,7 +183,7 @@ There are also numerous google groups dedicated to specific R packages and googl
 ### R Scripts, R Projects, and R Markdown 
 
 
-Thus far we have used only the R command console to do calculations and assign data. However, if we want to be able to go back and reproduce a set of calculations or want to share our code with others we will want a way to save and store and modify the R commands and operations we run. The simplest way to do this is using an *R script*. An R script is simply a text document (with a .R file ending) in which we write out all the R commands we want to run and descriptive comments about these commands. In R Studio we can then select and run commands  from the script.
+Thus far we have used only the R command console to do calculations and assign data. However, if we want to be able to go back and reproduce a set of calculations or want to share our code with others we will want a way to save and store and modify the R commands and operations we run. The simplest way to do this is using an **R script**. An R script is simply a text document (with a .R file ending) in which we write out all the R commands we want to run and descriptive comments about these commands. In R Studio we can then select and run commands  from the script.
 
 - Create a new R script by going to File --> New File --> R Script
 - In this new R script which should pull up in the Source window (upper left) in R Studio type up all the R commands we have run thus far and then save the script to a folder named "Lab 1".
@@ -187,9 +196,9 @@ Easy peasy, right?
 ****
 
 
-OK, so what is an *R Project*?
+**OK, so what is an *R Project*?**
 
-An R Project is essentially a special R folder that holds your R materials related to a specific topic. Technically, it a *working directory*, a file path on your computer that maps where information should be coming from and going to that is desgnated with a .RProj file. In R you work out of a single active working directory at a time. So if we want to pull data files from other folders on our computer we have to specify the full path (e.g."C:/Users/jane/Documents/GEOG 728/mydata.csv") instead of just writing out the file name "mydata.csv". I'll show you how to check and set your working directory next week, but for simply know that using a project simplifies things a bit by streamlining and automating the working directory references in R. 
+An R Project is essentially a special R folder that holds your R materials related to a specific topic. Technically, it a *working directory*, a file path on your computer that maps where information should be coming from and going to that is desgnated with a .RProj file. In R you work out of a single active working directory at a time. So if we want to pull data files from other folders on our computer we have to specify the full path (e.g.*"C:/Users/jane/Documents/GEOG 728/mydata.csv"*) instead of just writing out the file name "mydata.csv". I'll show you how to check and set your working directory next week, but for simply know that using a project simplifies things a bit by streamlining and automating the working directory references in R. 
 
 Your R Projects can hold R Scripts, R Markdown files, data, text files, images, etc... and you can easily organize these items in an R Project by creating sub folders.
 
@@ -199,7 +208,7 @@ Your R Projects can hold R Scripts, R Markdown files, data, text files, images, 
 
 *****
 
-Now the final, and perhaps most terrifying, R file type. R Markdown!
+**Now the final, and perhaps most terrifying, R file type. R Markdown!**
 * Much of this section comes from Jonathan Gilligan's great R Markdown Intro which can be found [here](https://github.com/gilligan-ees-3310-2020/lab-01-documentation).
 
 R Markdown is a fantastic tool that allows us to combine text and chunks of R code and their output into a single document.  These documents are stored as .Rmd files and use a plain text formatting system called **Markdown** to create pretty documents that can be converted to HTML documents or web pages, PDFs, or even MS Word documents. The big advantage here is that we can produce not just cool looking documents, but we can also integrate instructions or background information with our actual analysis and results. Making it easier for others to understand what we did, how we did it, and what we found.
@@ -391,11 +400,11 @@ Full Disclosure *Much of this section comes from Jonathan Gilligan's introductio
   
   - Let's enable GIT version control on our R project by going to Tools --> Project Options--> GIT/SVN and enable GIT
   
-  You should now have in the upper-right window a tab that says "Git". This window will show you a list of all the files in your R PRoject that have been modified. If we click   on the "Committ" button we should be able to see what has been changed in each document as well as a history of these changes. Right now you won't see anything becuase you haven't changed any files in your R Project since we enabled version control.
+  You should now have in the upper-right window a tab that says **Git**. This window will show you a list of all the files in your R PRoject that have been modified. If we click   on the **Commit** button we should be able to see what has been changed in each document as well as a history of these changes. Right now you won't see anything becuase you haven't changed any files in your R Project since we enabled version control.
   
-  - Add another paragraph of random text to your R Markdown file and save it. Then click the "Commit" button.
+  - Add another paragraph of random text to your R Markdown file and save it. Then click the **Commit** button.
   
-If you examine your markdown file in the commit window you should now see some text in the preview that is highlighted in green. the git version control is telling us that the only change made was to add this text. (Deletions are shown in red.) If we think that this is a good and significant change to keep we should type a commit message like "added some random text" and click the "Commit" button. This will ask git to remember what the document looked like at this exact moment in our revisions. Say I changed a code chunk and somehow break everything. Instead of trying to remember exactly what it looked like before I messed it up I could just go back to the "History" section in the git commit window and restore that earlier version of my document. Of course, this means that I actually need to **commit** my changes frequently (not just save the document).
+If you examine your markdown file in the commit window you should now see some text in the preview that is highlighted in <span style="color:green"> green</span>. The git version control is telling us that the only change made was to add this text. (Deletions are shown in <span style="color:red">red</span>.) If we think that this is a good and significant change to keep we should type a commit message like "added some random text" and click the "Commit" button. This will ask git to remember what the document looked like at this exact moment in our revisions. Say I changed a code chunk and somehow break everything. Instead of trying to remember exactly what it looked like before I messed it up I could just go back to the "History" section in the git commit window and restore that earlier version of my document. Of course, this means that I actually need to **commit** my changes frequently (not just save the document).
 
 - Go ahead and commit your changes to your .Rmd
 
