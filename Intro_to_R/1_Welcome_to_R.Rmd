@@ -21,8 +21,7 @@ Today we'll start by familiarizing ourselves with the RStudio Graphical User Int
 
 ## Before Next Class {.tabset} 
  - Complete Lab Assignment 1
- - Read Chapters 4 through 8 (except for the last section of each chapter) of [YaRrr! The Pirate's Guide to R](https://bookdown.org/ndphillips/YaRrr/basics.html) before the next class
- - Complete the Lab-2-Tutorial posted in Canvas
+ - Read Chapters 4 through 8 (except for the last section of each chapter) of [YaRrr! The Pirate's Guide to R](https://bookdown.org/ndphillips/YaRrr/basics.html) 
  
 
 ***
