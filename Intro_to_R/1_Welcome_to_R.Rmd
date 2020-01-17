@@ -192,6 +192,7 @@ Your R Projects can hold R Scripts, R Markdown files, data, text files, images, 
 ***
 
 Now the final, and perhaps most terrifying, R file type. R Markdown!
+* Much of this section comes from Jonathan Gilligan's great R Markdown Intro which can be found [here](https://github.com/gilligan-ees-3310-2020/lab-01-documentation).
 
 R Markdown is a fantastic tool that allows us to combine text and chunks of R code and their output into a single document.  These documents are stored as .Rmd files and use a plain text formatting system called **Markdown** to create pretty documents that can be converted to HTML documents or web pages, PDFs, or even MS Word documents. The big advantage here is that we can produce not just cool looking documents, but we can also integrate instructions or background information with our actual analysis and results. Making it easier for others to understand what we did, how we did it, and what we found.
 
@@ -221,8 +222,183 @@ Just below the header information you will see an R code chunk called **R setup*
 
 - For now leave this alone and go down to the text section below.
 
+Any line of text that begins with one or more hash symbols ("#") and is preceded by 
+a blank line is treated as a section header. Top-level section headers have a single
+hash, and subsections, subsubsections, etc. use two, three, etc. hashes.
 
 
+```
+# This is a top-level section header
+
+## This is a subsection
+
+### This is a subsubsection
+
+# This is another section
+```
+
+- Try changing the existing heading to "Getting Started with R"
+
+
+Any block of one or more lines of text, with a blank line before and a blank line after is treated as a single paragraph.  To separate paragraphs, put a blank line between them:
+
+```
+This is one paragraph.
+It stretches over several consecutive lines,
+but it will be formatted 
+as a single paragraph.
+
+This is another paragraph.
+The blank line between the two
+blocks of text tells Markdown
+that they are separate paragraphs
+```
+
+- Try adding some text describing what you did in your starter script that we created earlier.
+
+
+To make _italic text_ and **boldface text** you surround the text with underscores 
+or asterisks. A single underscore or asterisk means italic, two means boldface, 
+and three means both italic and boldface:
+
+```
+This is _italic text_. This is *also italic text*. __This is boldface__ and 
+**so is this**. ***This is bold italic***. This is ~~strikethrough~~, perhaps 
+to indicate an error.
+```
+
+- Try formatting some of your newly written text as italic or bold or both.
+
+
+You can make bulleted or numbered lists easily in Markdown. Simply begin a line 
+with an asterisk, hyphen, or plus sign.
+To make a sub-list, just indent the lines of the sublist by four spaces.
+
+```
+* This is a list
+
+* This is the second item of the list.
+
+    * This is a sub-list
+
+    * This is another item in the sub-list
+    
+        A list item can have several paragraphs. Just ident the continuation 
+        by four additional spaces and do not begin it with an asterisk.
+        If you have multiple lines with no blank line separating them,
+        Markdown treats them as a single paragraph.
+
+        Here is a third paragraph of continuation.
+
+* This is the main list again.
+  Just as with other things, you can break a single list item into several lines,
+  and as long as there is no blank line between them, Markdown knows to treat
+  them as a single paragraph.
+```
+
+To make numbered lists, start them with a number and a period:
+
+```
+1. This is a list
+
+1. This is the second item of the list. Notice that I keep using the 
+   numeral "1", but Markdown automatically increments the numbers
+   for the list items.
+
+    a) This is a sub-list
+
+    a) This is another item in the sub-list
+    
+        A list item can have several paragraphs.
+        
+        Here is a third paragraph of continuation.
+        
+        i) this is a sub-sub list numbered with Roman numerals
+
+        i) this is a sub-sub list numbered with Roman numerals
+
+        i) this is a sub-sub list numbered with Roman numerals
+
+1. This is the main list again.
+
+```
+
+- Try creating a list (for demonstration purposes only so text doesn't haven't mean anything in particular)
+
+As I said before, one of the best reasons to use R Markdown documents is becuase we can integrate text with R computation. To enter R expressions in an RMarkdown document, we use "code blocks" and "inline code". Code blocks are useful if we are doing a calculation, and inline code is useful if you just want to insert a number (maybe one you have
+calculated in a code block) into the middle of a line of text.
+
+Code blocks begin and end with three consecutive "back-tick" characters:
+
+<pre><code>```{r code_block_name, options}
+   # code goes here, for example
+   1+1``` 
+</code></pre>
+
+Inline code appears between single back-ticks `` `r
+1+1` `` 
+
+We express basic mathematical operations in R similarly to the way we express them 
+in Excel and most programming languages. Addition and subtraction use the
+normal plus and minus signs. Multiplication uses an asterisk, division uses
+a slash ("/"), and powers (exponentiation) uses "^".
+
+R has a lot of mathematical functions you can use, such as `sqrt()`, `log()` 
+(for the natural logarithm), `log10()` for the base-10 logarithm, and so forth.
+
+We can assign numbers to variables using the equals sign:
+```{r stefan_boltzmann}
+sigma = 5.67E-8
+I_solar = 1350 # watts per square meter
+albedo = 0.3
+I_absorbed = I_solar * (1 - albedo)
+T = (I_absorbed / (4 * sigma))^0.25
+```
+
+If the last line of a code block is something with a value (e.g., the name of a 
+variable or a mathematical expression, as opposed to an assignment with an equals 
+sign), then R will show that value:
+
+```{r surface_temperature}
+T
+```
+
+
+We can also print the value of an R expression in the middle of a line of text 
+using inline code `` ` T =  
+`r knitr::inline_expr("T")` ` `` will give T = `r T`.
+
+Inline code is very useful because it lets us ask R to automatically insert a 
+number into the text. This means that every time we knit the document, that number 
+is generated by R. If you write a report and then realize that there was a problem 
+with the data or the analysis, you can just fix the problem and re-knit the report 
+using the corrected data and analysis code. You don't need to manually go through 
+a separate document and edit the numbers to update them with the latest results 
+from your analysis. RMarkdown will do that for you, if you used inline code to 
+insert the numbers into your text.
+
+Thus, a bit of extra work at the beginning to set up the document and analysis 
+using RMarkdown saves lots of time later on by making it trivial to update the 
+document.
+
+Code blocks also allow us to include graphs in our document:
+
+
+<pre><code>```{r graph_example, fig.cap = "This is a plot of pressure versus temperature."}
+ggplot(pressure, aes(x = temperature, y = pressure)) +
+  geom_line() +
+  geom_point() +
+  labs(x = "Temperature", y = "Pressure")```</code></pre>
+
+
+
+
+
+There is much much more that can be done with Markdown formatting including adding images and hyperlinks or even tabs (like in this tutorial)  that you can explore on your own using the following references:
+
+- [Jonathan Gilligan's R Markdown Intro](https://github.com/gilligan-ees-3310-2020/lab-01-documentation)
+- [The R Markdown Cheatsheet](https://rstudio.com/wp-content/uploads/2019/01/Cheatsheets_2019.pdf)
+- [R Markdown the Definitive Guide](https://bookdown.org/yihui/rmarkdown/html-document.html#tabbed-sections)
 
 
 
