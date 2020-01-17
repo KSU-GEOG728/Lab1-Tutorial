@@ -178,7 +178,9 @@ Thus far we have used only the R command console to do calculations and assign d
 
 Easy peasy, right?
 
-***
+
+****
+
 
 OK, so what is an *R Project*?
 
@@ -189,7 +191,8 @@ Your R Projects can hold R Scripts, R Markdown files, data, text files, images, 
 - Let's try creating a new R Project by going to File --> New File --> R Project --> Existing Directory --> Navigate to your "Lab 1" folder and assign the R Project there
 - In this new R Project you should see a list of Files in the window in the lower right. Click on your script to pull it up in the main Source window.
 
-***
+
+*****
 
 Now the final, and perhaps most terrifying, R file type. R Markdown!
 * Much of this section comes from Jonathan Gilligan's great R Markdown Intro which can be found [here](https://github.com/gilligan-ees-3310-2020/lab-01-documentation).
@@ -343,23 +346,53 @@ using RMarkdown saves lots of time later on by making it trivial to update the
 document.
 
 
-
-
 There is MUCH MUCH more that can be done with Markdown formatting including adding images and hyperlinks or even tabs (like in this tutorial)  that you can explore on your own using the following references:
 
 - [Jonathan Gilligan's R Markdown Intro](https://github.com/gilligan-ees-3310-2020/lab-01-documentation)
-- [The R Markdown Cheatsheet](https://rstudio.com/wp-content/uploads/2019/01/Cheatsheets_2019.pdf)
+- [The R Markdown Cheatsheet](https://rstudio.com/wp-content/uploads/2019/01/Cheatsheets_2019.pdf) (This can also be found under the Help menu.)
 - [R Markdown the Definitive Guide](https://bookdown.org/yihui/rmarkdown/html-document.html#tabbed-sections)
+
+You can also pull up the Markdown Quick Reference guide in the help window of the R Studion GUI. Go to Help --> Markdown Quick Refence 
+
+For now let's wrap up by trying to actually convert our markdown file into an html file.
+
+- Click the **Knit** button at the top of the main window.
+
+A html version of your .Rmd should have popped up in a second window. How does it look?
 
 </br>
 
 
 ### Version Control
 
+Full Disclosure *Much of this section comes from Jonathan Gilligan's introduction to Reproducible Research which can be found [here](https://github.com/gilligan-ees-3310-2020/lab-01-documentation).
 
+  As you edit both your text and the R scripts you use for
+  your analysis,  it is valuable to be able to keep track of changes. For
+  instance, if your analysis is working well, and then you edit something and it
+  stops working it is useful to be able to go back and look at what changed
+  between the time when it was working and when it stopped working.
+    
+  Version (or revision) control systems allow you to easily keep track of changes you make
+  to your files, and it is increasingly becoming a standard practice to use version control in data analytics
+  and computationally intensive research.
+    
+  We will be using a revision control tool called `git`. Not only can we use GIT version control in R via our R Projects, but there is a web site
+  called [github.com](https://github.com), which allows people to store their version controlled projects in the cloud and serves as a platform for 
+  sharing of and collaboration on projects.  I personally use github to release scripts and models developed
+  in my research, and there is an educational site connected to github, which we will use for some class assignments later in the semester.
+  
+  For now though, we will start by using local version control through R.
+  
+  - Let's enable GIT version control on our R project by going to Tools --> Project Options--> GIT/SVN and enable GIT
+  
+  You should now have in the upper-right window a tab that says "Git". This window will show you a list of all the files in your R PRoject that have been modified. If we click   on the "Committ" button we should be able to see what has been changed in each document as well as a history of these changes. Right now you won't see anything becuase you haven't changed any files in your R Project since we enabled version control.
+  
+  - Add another paragraph of random text to your R Markdown file and save it. Then click the "Commit" button.
+  
+If you examine your markdown file in the commit window you should now see some text in the preview that is highlighted in green. the git version control is telling us that the only change made was to add this text. (Deletions are shown in red.) If we think that this is a good and significant change to keep we should type a commit message like "added some random text" and click the "Commit" button. This will ask git to remember what the document looked like at this exact moment in our revisions. Say I changed a code chunk and somehow break everything. Instead of trying to remember exactly what it looked like before I messed it up I could just go back to the "History" section in the git commit window and restore that earlier version of my document. Of course, this means that I actually need to **commit** my changes frequently (not just save the document).
 
-
-
+- Go ahead and commit your changes to your .Rmd
 
 
 
@@ -369,7 +402,7 @@ There is MUCH MUCH more that can be done with Markdown formatting including addi
 
 Whew, that was a lot of information. Finally, we're ready to get cooking with some data. But wait! First we need to get some data into R. 
 
-- To keep things simple let's start by just making a few variables to work with. Type the following code in a new R Script, then select the lines of code you want to run and hit **cntrl+Enter**.
+- To keep things simple let's start by just making a few variables to work with. Type the following code in your R Script, then select the lines of code you want to run and hit **cntrl+Enter**.
 
 
 ```{r data}
@@ -387,9 +420,12 @@ let <- LETTERS[1:10]
 So what did we just do? We just created new numerical data objects called "x" and "y" with a value of 6 and 8, a new vector data object called "n" with integer values 1 through 10, a new vector called "let" that includes the first 10 letters of the alphabet, and a data frame that combines the two vectors "n" and "let".
 
 **Some Important Notes**
-- **<-** is an operator that assigns a value, vector, dataframe, etc... to the thing that is pointed to
-- **:** is an operator that identifies a sequence. It can be used to create a new sequence or to reference a sequence of values or columns, etc... within an existing dataset.
-- **LETTERS** is a set of constants built into base R, namely the 26 letters of the alphabet in upper-case. Check ?Constants for other constants available.
+
+-  **<-** is an operator that assigns a value, vector, dataframe, etc... to the thing that is pointed to
+  
+-  **:** is an operator that identifies a sequence. It can be used to create a new sequence or to reference a sequence of values or columns, etc... within an existing dataset.
+  
+-  **LETTERS** is a set of constants built into base R, namely the 26 letters of the alphabet in upper-case. Check ?Constants for other constants available.
 
 Let's check to make sure these variables really are what we think they are by asking R to return their values.
 
@@ -448,6 +484,7 @@ Now on to bigger and better things... lets try one of the most basic and importa
 R is wonderfully flexible with the types of data you can import and work with. Got a csv or text file? Base R can handle that. What about an excel file or shapefile? 
 
 <center>There's a package for that!</center>
+</br>
 
 
 - Let's start by loading a csv using the ***read.csv*** function. Download the file *iris.csv* from Canvas into your R project folder then try loading it into R. Remember that you can use ***?read.csv*** to get help on how to use this function.
@@ -506,7 +543,7 @@ dim(d)
 
 ```
 
-By the way, the *iris* dataset is a [pretty famous dataset in R land](https://twitter.com/kareem_carr/status/1156279166276386816). It' i'ss actually one of the datasets provided with base R via the package "datasets()" to allow for simple illustrations of R functions and is widely used for demonstrations and worked examples for many of the more widely used R packages such as dplyr and ggplot2. Want to know how to access these mysterious, freely provided datasets? 
+By the way, the *iris* dataset is a [pretty famous dataset in R land](https://twitter.com/kareem_carr/status/1156279166276386816). It's actually one of the datasets provided with base R via the package "datasets()" to allow for simple illustrations of R functions and is widely used for demonstrations and worked examples for many of the more widely used R packages such as dplyr and ggplot2. Want to know how to access these mysterious, freely provided datasets? 
 
 -Just type ***data()***
 
@@ -532,19 +569,22 @@ ncol(ds)
 
 ```
 
-***
+
 ### Lab Assignment
 
 For your lab assignment due next Wednesday please do the following.
 
-1. Create an R Project for your lab assignments with version control
-2. Create an Markdown file (html) titled Lab #1 with your name 
+1. Create an R Project for your lab assignment with version control (already done)
+2. Create an Markdown file (html) titled Lab #1  
 3. In this R Markdown file create a new numerical variable and a new vector of numbers
 4. Report these produced data objects and then apply at least two functions to each
 5. Load a dataset from the R datasets package and report summary information on the dataset and its structure
-6. Your R Markdown file should include text describing what you are doing, code chunks where you run actual R code, and text describing the output
-7. Knit your R Markdown file
-8. Upload a copy of the knit html and the .rmd file to Canvas
+6. Sign up for a free student account on github and include your github username in your Markdown file.
+7. Your R Markdown file should include text describing what you are doing, code chunks where you run actual R code, and text describing the output
+8. Use headers and include at least two examples of non-standard text formatting, and one list in your file
+9. Knit your R Markdown file and upload a copy of the knit .html and the .Rmd file to Canvas
+10. Read [Chapters 4 through 8 (except for the last section of each chapter) of YaRrr! The Pirate's Guide to R](https://bookdown.org/ndphillips/YaRrr/basics.html) before the next class
+
 
 
 
