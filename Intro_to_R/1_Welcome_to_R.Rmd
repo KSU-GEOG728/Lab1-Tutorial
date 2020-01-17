@@ -12,12 +12,18 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Today we'll start by familiarizing ourselves with the RStudio Graphical User Interface (GUI) and basic R commands and operators. We'll also examine Git version control and R Markdown for making "pretty" documents.
 
-## Objectives {.tabset}
+## Objectives 
 - Learn how to navigate and customize the RStudio GUI
 - Learn how to install and use packages in R
 - Learn how to find help within R
 - Familiarize ourselves with the R Markdown structure and .git version control
 - Learn how to import data, create data, explore its structure, and perform basic operations
+
+## Before Next Class {.tabset} 
+ - Complete Lab Assignment 1
+ - Read Chapters 4 through 8 (except for the last section of each chapter) of [YaRrr! The Pirate's Guide to R](https://bookdown.org/ndphillips/YaRrr/basics.html) before the next class
+ - Complete the Lab-2-Tutorial posted in Canvas
+ 
 
 ***
 
@@ -583,7 +589,7 @@ For your lab assignment due next Wednesday please do the following.
 7. Your R Markdown file should include text describing what you are doing, code chunks where you run actual R code, and text describing the output
 8. Use headers and include at least two examples of non-standard text formatting, and one list in your file
 9. Knit your R Markdown file and upload a copy of the knit .html and the .Rmd file to Canvas
-10. Read [Chapters 4 through 8 (except for the last section of each chapter) of YaRrr! The Pirate's Guide to R](https://bookdown.org/ndphillips/YaRrr/basics.html) before the next class
+
 
 
 
